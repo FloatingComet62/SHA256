@@ -1,5 +1,5 @@
 {
-  "name": "a316421830e22b273ed9235c297b2cf43bcf95e39472aaaee9d73eee07b29b7e",
+  "name": "sha256",
   "version": "0.0.1",
   "description": "If it ain't random, it's reversible ",
   "main": "src/index.js",

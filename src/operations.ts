@@ -74,6 +74,32 @@ const modulo = (number: number, powInt: number) => {
 
     return output
 }
+const pad = (string: string, setBits: number) => {
+    let BitMatch = `${string}1`
+
+    while(setBits-64>BitMatch.length){
+        BitMatch += "0"
+    }
+
+    const length = numberToBinary(string.length)
+    let lastBits = ""
+    
+    while(64-length.length>lastBits.length){
+        lastBits += "0"
+    }
+
+    lastBits += length
+
+    return `${BitMatch}${lastBits}`
+}
+const scheduleSplit = (messageBlock: string, splitIndex: number) => {
+
+    const messageBlockArray = messageBlock.split('')
+    const chunkedArray = Array.from({length: Math.ceil(messageBlockArray.length / splitIndex)}, (value, index) => messageBlockArray.slice(index * splitIndex, index * splitIndex + splitIndex));
+    const chunkedBlock = chunkedArray.map((value) => value.join(''))
+
+    return chunkedBlock
+}
 
 export default {
     stringToBinary,
@@ -85,4 +111,6 @@ export default {
     exclusiveOr,
     addBinary,
     modulo,
+    pad,
+    scheduleSplit,
 }
